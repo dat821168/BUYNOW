@@ -11,7 +11,7 @@ default: &default
 
 development:
   <<: *default
-  database: buynow_development
+  database: buynow
   host: localhost
   username: dat
   password: 123456
@@ -20,9 +20,9 @@ development:
 # Do not set this db to the same as development or production.
 test:
   <<: *default
-  database: buynow_test
+  database: buynow_fortest
   host: localhost
-  username: postgres
+  username: dat
   password: 123456
 
 production:
