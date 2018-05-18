@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
     belongs_to :producer
     belongs_to :category
-    belongs_to :orderdetail
-    belongs_to :cartdetail
+    has_many :orderdetails
+    has_many :cartdetails
 end

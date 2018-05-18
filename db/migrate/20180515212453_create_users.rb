@@ -1,13 +1,13 @@
 class CreateUsers < ActiveRecord::Migration[5.2]
   def change
     create_table :users do |t|
-      t.string :NAME
-      t.date   :BDAY
-      t.string :PHONE
-      t.string :ADDRESS
-      t.string :EMAIL
-      t.boolean :ISADMIN
-      t.float :ACCUMULATION
+      t.string :name
+      t.date   :birthday
+      t.string :phone
+      t.string :address
+      t.string :email
+      t.boolean :is_admin
+      t.float :accumulation
       t.timestamps
     end
   end

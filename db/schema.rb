@@ -10,124 +10,123 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_05_18_020541) do
+ActiveRecord::Schema.define(version: 2018_05_18_062146) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "accounts", force: :cascade do |t|
-    t.string "USERNAME"
-    t.string "PASSWORD"
-    t.boolean "ISADMIN"
-    t.bigint "users_id"
+    t.string "user_name"
+    t.string "password"
+    t.boolean "is_admin"
+    t.bigint "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["users_id"], name: "index_accounts_on_users_id"
+    t.index ["user_id"], name: "index_accounts_on_user_id"
   end
 
   create_table "cartdetails", force: :cascade do |t|
-    t.float "UNITPRICE"
-    t.integer "QUANLITY"
-    t.float "TOTAL"
-    t.bigint "products_id"
-    t.bigint "carts_id"
+    t.float "unit_price"
+    t.integer "quantity"
+    t.float "total"
+    t.bigint "product_id"
+    t.bigint "cart_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["carts_id"], name: "index_cartdetails_on_carts_id"
-    t.index ["products_id"], name: "index_cartdetails_on_products_id"
+    t.index ["cart_id"], name: "index_cartdetails_on_cart_id"
+    t.index ["product_id"], name: "index_cartdetails_on_product_id"
   end
 
   create_table "carts", force: :cascade do |t|
-    t.float "TOTAL"
+    t.float "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "CATNAME"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
-    t.text "CONTENT"
-    t.bigint "users_id"
-    t.bigint "products_id"
+    t.text "content"
+    t.bigint "user_id"
+    t.bigint "product_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["products_id"], name: "index_comments_on_products_id"
-    t.index ["users_id"], name: "index_comments_on_users_id"
+    t.index ["product_id"], name: "index_comments_on_product_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "orderdetails", force: :cascade do |t|
-    t.float "UNITPRICE"
-    t.integer "QUANLITY"
-    t.float "TOTAL"
-    t.bigint "products_id"
-    t.bigint "orders_id"
+    t.float "unit_price"
+    t.integer "quantity"
+    t.float "total"
+    t.bigint "product_id"
+    t.bigint "order_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["orders_id"], name: "index_orderdetails_on_orders_id"
-    t.index ["products_id"], name: "index_orderdetails_on_products_id"
+    t.index ["order_id"], name: "index_orderdetails_on_order_id"
+    t.index ["product_id"], name: "index_orderdetails_on_product_id"
   end
 
   create_table "orders", force: :cascade do |t|
-    t.float "TOTAL"
+    t.float "total"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "producers", force: :cascade do |t|
-    t.string "PRONAME"
+    t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "CPU"
-    t.string "RAM"
-    t.string "MEMORY"
-    t.string "VGA"
-    t.string "FRONTCAMERA"
-    t.string "BACKCAMERA"
-    t.string "OS"
-    t.string "BLUETOOTH"
-    t.string "SCREEN"
-    t.string "PIN"
-    t.float "PRICE"
-    t.string "PIMAGE"
-    t.string "PWEIGHT"
-    t.bigint "categories_id"
-    t.bigint "producers_id"
+    t.string "cpu"
+    t.string "ram"
+    t.string "memory"
+    t.string "vga"
+    t.string "front_camera"
+    t.string "back_camera"
+    t.string "os"
+    t.string "bluetooth"
+    t.string "screen"
+    t.string "pin"
+    t.float "price"
+    t.string "image"
+    t.string "weight"
+    t.bigint "category_id"
+    t.bigint "producer_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "PIMAGE1"
-    t.string "PIMAGE2"
-    t.string "PNAME"
-    t.index ["categories_id"], name: "index_products_on_categories_id"
-    t.index ["producers_id"], name: "index_products_on_producers_id"
+    t.string "status"
+    t.integer "quantity"
+    t.index ["category_id"], name: "index_products_on_category_id"
+    t.index ["producer_id"], name: "index_products_on_producer_id"
   end
 
   create_table "users", force: :cascade do |t|
-    t.string "NAME"
-    t.date "BDAY"
-    t.string "PHONE"
-    t.string "ADDRESS"
-    t.string "EMAIL"
-    t.boolean "ISADMIN"
-    t.float "ACCUMULATION"
+    t.string "name"
+    t.date "birthday"
+    t.string "phone"
+    t.string "address"
+    t.string "email"
+    t.boolean "is_admin"
+    t.float "accumulation"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  add_foreign_key "accounts", "users", column: "users_id"
-  add_foreign_key "cartdetails", "carts", column: "carts_id"
-  add_foreign_key "cartdetails", "products", column: "products_id"
-  add_foreign_key "comments", "products", column: "products_id"
-  add_foreign_key "comments", "users", column: "users_id"
-  add_foreign_key "orderdetails", "orders", column: "orders_id"
-  add_foreign_key "orderdetails", "products", column: "products_id"
-  add_foreign_key "products", "categories", column: "categories_id"
-  add_foreign_key "products", "producers", column: "producers_id"
+  add_foreign_key "accounts", "users"
+  add_foreign_key "cartdetails", "carts"
+  add_foreign_key "cartdetails", "products"
+  add_foreign_key "comments", "products"
+  add_foreign_key "comments", "users"
+  add_foreign_key "orderdetails", "orders"
+  add_foreign_key "orderdetails", "products"
+  add_foreign_key "products", "categories"
+  add_foreign_key "products", "producers"
 end
