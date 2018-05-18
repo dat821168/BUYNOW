@@ -44,7 +44,7 @@ ActiveRecord::Schema.define(version: 2018_05_18_020541) do
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "catname"
+    t.string "CATNAME"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -78,14 +78,14 @@ ActiveRecord::Schema.define(version: 2018_05_18_020541) do
   end
 
   create_table "producers", force: :cascade do |t|
-    t.string "proname"
+    t.string "PRONAME"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "image"
   end
 
   create_table "products", force: :cascade do |t|
-    t.string "cpu"
+    t.string "CPU"
     t.string "RAM"
     t.string "MEMORY"
     t.string "VGA"

@@ -3,7 +3,7 @@
 			<img src="images/shop/advertisement.jpg" alt="" />
 		</div>
 	</section>
-	
+
 	<section>
 		<div class="container">
 			<div class="row">
@@ -156,14 +156,19 @@
 									<div class="productinfo text-center">
 										<img src="images/shop/product12.jpg" alt="" />
 										<h2>$56</h2>
-										<p>Easy Polo Black Edition</p>
-										<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+										
+										<p><%= @a %></p>
+									 
+										<a class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+								
 									</div>
 									<div class="product-overlay">
 										<div class="overlay-content">
 											<h2>$56</h2>
 											<p>Easy Polo Black Edition</p>
-											<a href="#" class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+											<%= link_to('/product_details/index') do %>
+											<a class="btn btn-default add-to-cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+												<%end%>
 										</div>
 									</div>
 								</div>
