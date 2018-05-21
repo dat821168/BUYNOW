@@ -1,0 +1,22 @@
+<h1>New Producer</h1>
+
+<%= form_for :producer, url: :producers, method: :post do |form| %>
+
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+
+  <p>
+    <%= form.label :image%><br>
+    <%= form.text_area :image %>
+  </p>
+
+  <p>
+    <%= form.submit %>
+  </p>
+
+<% end %>
+
+<%= link_to 'Back', producers_path %>

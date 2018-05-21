@@ -5,4 +5,8 @@ Rails.application.routes.draw do
   get 'product/index'
   get 'cart/index'
   get 'checkout/index'
+  resources :producers
+
+  # resource :producers
+
 end

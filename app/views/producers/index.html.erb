@@ -1,0 +1,23 @@
+
+<h1>Listing articles</h1>
+
+<%= link_to ('/producers/new') do %>
+  <p>New Producer</p>
+<% end %>
+<table>
+    <tr>
+        <th>Name</th>
+        <th>Image</th>
+        <th></th>
+    </tr>
+
+    <% @producers.each do |producer| %>
+   <tr>
+     <%@pro=producer%>
+        <td><%= producer.name %></td>
+        <td><%= producer.image %></td>
+        <td><%= link_to 'Show', producers_show_path(:param1 => @pro.id, :param2 => @pro.name, :param3 => @pro.image)%></td>
+        <td><%= link_to 'Edit', producers_edit_path(:param1 => @pro.id, :param2 => @pro.name, :param3 => @pro.image)%></td>
+    </tr>
+    <% end %>
+</table>

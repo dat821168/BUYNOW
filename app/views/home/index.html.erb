@@ -1,4 +1,6 @@
-	<section id="slider"><!--slider-->
+
+<body>
+<section id="slider"><!--slider-->
 		<div class="container">
 			<div class="row">
 				<div class="col-sm-12">
@@ -69,33 +71,82 @@
 				<div class="col-sm-3">
 					<div class="left-sidebar">
 						<h2>Category</h2>
-						<div class="panel-group category-products" id="accordian"><!--category-productsr-->
-							<% @Categories.each do |t| %>
-								<div class="panel panel-default">
-									<div class="panel-heading">
-										<h4 class="panel-title">
-											<a data-toggle="collapse" data-parent="#accordian" href="#sportswear">				
-												<span class="badge pull-right"><i class="fa fa-plus"></i></span>
-												<%=  t.CATNAME%>
-											</a>
-										</h4>
-									</div>
-									<div id="sportswear" class="panel-collapse collapse">
-										<div class="panel-body">
-											<ul>
-											<%= link_to('/product/index') do %>
-												<li><p href="#">Samsung </p></li>
-												<li><p href="#">Apple </p></li>
-												<li><p href="#">Asus </p></li>
-												<li><p href="#">Dell</p></li>
-												<li><p href="#">MSI </p></li>
-											<%end%>
-											</ul>
-										</div>
-									</div>
-								</div>
-							<% end %>
-						</div>
+						<!--category-productsr-->
+<!--            <div class="panel-group category-products" id="accordian">-->
+                <div class="panel-group category-products" id="accordian">
+                <%# for i in 1..@Categories.length %>
+<!--                <div class="panel panel-default">-->
+<!--                  <div class="panel-heading">-->
+<!--                    <h4 class="panel-title">-->
+<!--                      <a data-toggle="collapse" data-parent="#accordion" href="#collapse<%#=i %>">-->
+<!--                        <span class="badge pull-right"><i class="fa fa-plus"></i></span>-->
+                       <%#= @Categories.find(i).name %>
+
+<!--                      </a>-->
+<!--                    </h4>-->
+<!--                  </div>-->
+<!--                  <div id="collapse<%#=i %>" class="panel-collapse collapse in">-->
+<!--                    <div class="panel-body">-->
+                      <%# @Producers.each do |producers| %>
+<!--                       <p href="#"><%#= producers.name %>-->
+                      <%# end %>
+<!--                    </div>-->
+<!--                  </div>-->
+<!--                </div>-->
+                <%# end %>
+                  <% i = 1 %>
+                  <% @Categories.each do |categories| %>
+                  <div class="panel panel-default">
+                    <div class="panel-heading">
+                      <h4 class="panel-title">
+                        <a data-toggle="collapse" data-parent="#accordian" href="#sportswear<%= i %>">
+                          <span class="badge pull-right"><i class="fa fa-plus"></i></span>
+                          <%= categories.name %>
+                        </a>
+                      </h4>
+                      <div class="panel-body">
+                        <div id="sportswear<%= i %>" class="panel-collapse collapse">
+                          <ul>
+                            <%= link_to('/product/index') do %>
+                                <% if(i == 1)%>
+                                  <% @Producers.each do |producers| %>
+                                    <% if( producers.name.eql?("SAMSUNG")==false && producers.name.eql?("HUAWEI") == false) %>
+                                      <li><p href="#"><%= producers.name %> </p></li>
+                                    <% end %>
+                                  <% end %>
+                                <% end %>
+                              <% if (i == 2) %>
+                                <% @Producers.each do |producers| %>
+                                  <% if (producers.name.eql?("SAMSUNG") == true || producers.name.eql?("APPLE") == true|| producers.name.eql?("OPPO") == true) %>
+                                    <li><p href="#"><%= producers.name %> </p></li>
+                                  <% end %>
+                                <% end %>
+                              <% end %>
+                              <% if (i == 3) %>
+                                <% @Producers.each do |producers| %>
+                                  <% if (producers.name.eql?("SAMSUNG") == true || producers.name.eql?("APPLE") == true|| producers.name.eql?("HUAWEI") == true) %>
+                                    <li><p href="#"><%= producers.name %> </p></li>
+                                  <% end %>
+                                <% end %>
+                              <% end %>
+                            <% end %>
+                          </ul>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                    <% i = i +1 %>
+                  <% end %>
+
+              </div>
+
+
+
+
+
+
+<!--<!--            </div>-->
+
 						<div class="brands_products"><!--brands_products-->
 							<h2>Brands</h2>
 							<div class="brands-name">
@@ -689,4 +740,6 @@
 			</div>
 		</div>
 	</section>
+
 </body>
+</html>
