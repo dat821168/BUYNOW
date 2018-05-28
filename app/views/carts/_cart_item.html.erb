@@ -23,7 +23,7 @@
 							<%= f.submit "Update Quantity", class:'btn-update'%>
 						</div>
 						<div class="btn-group">
-							<%= link_to "Delete", item, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %>
+							<%= link_to "Delete Item", item, method: :delete, remote: true, data: { confirm: 'Are you sure?' }, class: 'btn btn-danger'  %>
 						</div>
 						<div>
 							<p style="clear: both;">Total Price: <%=number_with_delimiter( item.total_price.to_i) %> VND</p>

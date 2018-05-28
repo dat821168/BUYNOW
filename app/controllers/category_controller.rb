@@ -1,4 +1,5 @@
 class CategoryController < ApplicationController
+    skip_before_action :verify_authenticity_token, only: [:create, :update, :destroy]
     def index
         @Producers = Producer.all
         @category = Category.all
@@ -31,15 +32,15 @@ class CategoryController < ApplicationController
     
     def edit
         @Producers = Producer.all
-        @Categories = Category.all
+        @category = Category.all
        
-        @categories.each do |t|
+        @category.each do |t|
             @list= Array(@list).push(Category.joins(products: :producer).where(name: t.name).group('producers.name').pluck('producers.name'))
         end
-        @Categories.each do |t|
+        @category.each do |t|
             @list_number_product_of_producer = Array( @list_number_product_of_producer).push(Product.where(:producer_id =>t.id).count)
         end
-        @category = Category.find(params[:id])
+        @categories = Category.find(params[:id])
     end
   
     def create

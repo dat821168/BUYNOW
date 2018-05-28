@@ -39,10 +39,10 @@
 									<div class="dropdown-login">
 										<a class="fa" href="#" style="font-family:Montserrat,sans-serif;">My Account<span class="caret"></span></a>
 										<ul class="dropdown-content">
-											<%=link_to destroy_account_session_path, method: :delete do%>
+											<%=link_to edit_user_path(current_account) do%>
 											<li><p style="color: #fff"></p>Profile</li> 
 											<%end%>
-											<%=link_to destroy_account_session_path, method: :delete do%>
+											<%=link_to edit_user_path(current_account) do%>
 											<li><p style="color: #fff"></p>Change Password</li> 
 											<%end%>
 											<%=link_to destroy_account_session_path, method: :delete do%>
@@ -136,7 +136,7 @@
 											<div class="cart-btns">
 												<a href="/carts">View Cart</a>
 												
-												<a href="/carts/new">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
+												<a href="/order">Checkout  <i class="fa fa-arrow-circle-right"></i></a>
 											</div>
 										</div>
 									</div>

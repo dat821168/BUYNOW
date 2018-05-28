@@ -13,4 +13,5 @@ Rails.application.routes.draw do
   resources :order_items
   resource :carts, only: [:show, :new]
   resources :order
+  resource :comment, only: [:create]
 end
