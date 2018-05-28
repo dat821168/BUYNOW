@@ -1,0 +1,72 @@
+<%= form_for :product, url: :product_index, method: :post do |form| %>
+  <h2 class="title1">Thông tin chung</h2>
+
+  <div class="row-left">
+    <p>
+      <b>Product name:</b> <%= form.text_field :name, class: 'form-control' %>
+    </p>
+    <p>
+      <b>Producer:</b> <%= form.text_field :producer_id, class: 'form-control' %>
+    </p>
+  </div>
+  <div class="row-left">
+    <p>
+      <b>Category:</b> <%= form.text_field :category_id, class: 'form-control' %>
+    </p>
+    <p>
+      <b>Image:</b> <%= form.text_area :image, class: 'form-control' %>
+    </p>
+  </div>
+  <h2 class="title1">Thông tin chi tiết</h2>
+  <div class="row-left">
+    <p>
+      <b>CPU:</b> <%= form.text_field :cpu, class: 'form-control' %>
+    </p>
+    <p>
+      <b>RAM:</b> <%= form.text_field :ram, class: 'form-control' %>
+    </p>
+    <p>
+      <b>Memory:</b> <%= form.text_field :memory, class: 'form-control' %>
+    </p>
+    <p>
+      <b> VGA:</b> <%= form.text_field :vga, class: 'form-control' %>
+    </p>
+    <p>
+      <b>Front Camera:</b> <%= form.text_field :front_camera, class: 'form-control' %>
+    </p>
+    <p>
+      <b>Back Camera:</b> <%= form.text_field :back_camera, class: 'form-control' %>
+    </p>
+    <p>
+      <b>Status:</b> <%= form.text_field :status, class: 'form-control' %>
+    </p>
+  </div>
+
+  <div class="row-right">
+    <p>
+      <b>Sreen:</b> <%= form.text_field :screen, class: 'form-control' %>
+    </p>
+    <p>
+      <b>Bluetooth:</b> <%= form.text_field :bluetooth, class: 'form-control' %>
+    </p>
+    <p>
+      <b>OS:</b> <%= form.text_field :os, class: 'form-control' %>
+    </p>
+    <p>
+      <b>Weight:</b> <%= form.text_field :weight, class: 'form-control' %>
+    </p>
+    <p>
+      <b>Price:</b> <%= form.text_field :price, class: 'form-control' %>
+    </p>
+    <p>
+      <b>Quantity:</b> <%= form.text_field :quantity, class: 'form-control' %>
+    </p>
+    <p>
+      <b>Pin:</b> <%= form.text_field :pin, class: 'form-control' %>
+    </p>
+
+  </div>
+  <p>
+    <%= form.submit "Save", class: "btn btn-primary"  %>
+  </p>
+<% end %>

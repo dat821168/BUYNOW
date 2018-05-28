@@ -1,0 +1,4 @@
+<h3 style="color:#3a6070";>Update category</h3>
+<%=form_for @category,url:{action:"update"} do |f|%>
+<%=render partial:"category/form", :locals=>{:f => f}%>
+<%end%>
